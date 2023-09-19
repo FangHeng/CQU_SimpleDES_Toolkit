@@ -84,8 +84,7 @@ class SDES:
         left = bin(int(left, 2) ^ int(self.f(right, self.k1), 2))[2:].zfill(4)
         plaintext = self.permute(left + right, self.IP_INV)
         return plaintext
-
-
+    
 
 if __name__ == '__main__':
 
