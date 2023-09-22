@@ -37,18 +37,26 @@
   .ui-btn.encipher {
     /*新增坐标处理*/
     position : absolute;
-    top : 63%;
-    left : 47%;
+    top : 55%;
+    left : 53%;
     width: 6%;
-    height: 5%;
+    height: 4%;
   }
   .ui-btn.decipher {
     /*新增坐标处理*/
     position : absolute;
-    top : 73%;
-    left : 47%;
+    top : 55%;
+    left : 63%;
     width: 6%;
-    height: 5%;
+    height: 4%;
+  }
+  .ui-btn.copyed {
+    /*新增坐标处理*/
+    position : absolute;
+    top : 55%;
+    left : 73%;
+    width: 5.2%;
+    height: 4%;
   }
 
   .ui-btn span {
@@ -172,3 +180,4 @@
       right: 0;
     }
   }
+

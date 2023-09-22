@@ -11,6 +11,7 @@
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/btn-style.css' %}">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -43,7 +44,7 @@
         <div class="container mt-5" style="position: absolute;top: 15%">
             <div class="github-comment">
                 <p>欢迎使用S-DES Cipher Conversion工具！这是一个简单但实用的对称加密工具，
-                    基于SDES（简单数据加密标准）算法。在这里，您可以方便地进行位（Bit）或Unicode加密与解密。</p>
+                    基于SDES（简单数据加密标准）算法。在这里，您可以方便地进行位（Bit）或ASCII加密。</p>
                 <p>使用步骤：</p>
                 <ul>
                     <li>输入密钥：在"请输入加解密使用的密钥"框中输入您的密钥。</li>
@@ -51,7 +52,7 @@
                         选择编码类型：
                         <ul>
                             <li>Bit：选择这个选项如果您的文本是位编码。</li>
-                            <li>Unicode：选择这个选项如果您的文本是Unicode编码。</li>
+                            <li>ASCII：选择这个选项如果您的文本是ASCII编码。</li>
                         </ul>
                     </li>
                     <li>输入明文：在文本框中输入您想加密的文本。</li>
@@ -70,24 +71,31 @@
             <input class="keyArea" id="key" name="key" placeholder="请输入加解密使用的密钥">
             <div class="checkbox-wrapper">
                 <label>
-                    <input type="radio" name="choice" value="bit">
-                    <span class="checkbox" style="position:absolute;top:55%;left:32%"></span>
-                    <p style="position:absolute;top:53.5%;left:34.5%;font-size: larger">Bit</p>
+                    <input type="radio" name="choice" value="Bit" checked>
+                    <span class="checkbox" style="position:absolute;top:55%;left:38%"></span>
+                    <p style="position:absolute;top:53.5%;left:40.5%;font-size: larger">Bit</p>
                 </label>
             </div>
 
             <div class="checkbox-wrapper">
                 <label>
-                    <input type="radio" name="choice" value="unicode" checked>
-                    <span class="checkbox" style="position:absolute;top:55%;left:38%"></span>
-                    <p style="position:absolute;top:53.5%;left:40.5%;font-size: larger" >Unicode</p>
+                    <input type="radio" name="choice" value="ASCII">
+                    <span class="checkbox" style="position:absolute;top:55%;left:45%"></span>
+                    <p style="position:absolute;top:53.5%;left:47.5%;font-size: larger" >ASCII</p>
                 </label>
             </div>
 
             <textarea class="plaintextArea" id="plaintext" name="plaintext"
                       placeholder="输入加解密对应的原文或者密文：&#10;请注意如果选择bit型加密，请输入8位二进制数；&#10;如果选择Unicode型加密，则输入您需要加密的原文字符串即可。"></textarea>
             <textarea class="ciphertextArea" id="ciphertext" name="ciphertext" placeholder="&#10;&#10;&#10;&#10;输出结果"
-                      readonly="true"></textarea>
+                      readonly="true">
+            </textarea>
+
+
+{#            <label for="website">Website:</label>#}
+{#            <input class="unique-input" type="text" id="website" value="http://www.sitepoint.com/" />#}
+{#            <button class="unique-button" data-copytarget="#website">copy</button>#}
+
             <button class="ui-btn encipher" type="button">
                     <span>
                         Encipher
@@ -96,6 +104,11 @@
             <button class="ui-btn decipher" type="button">
                     <span>
                         Decipher
+                    </span>
+            </button>
+            <button class="ui-btn copyed" type="button" id="copyButton">
+                    <span>
+                        copy
                     </span>
             </button>
         </form>
@@ -114,6 +127,11 @@
             学习S-DES的加解密流程,并使用编程语言实现S-DES加密算法实例。</h3>
         <h3 style="position: absolute;top:80%;text-align: center">目前进度:
             增加了程序对ASCII码的适应，完成实用性的扩展，并完成对应五项任务的测试。</h3>
+        <div>
+        <p class="copyright-footer" style="position: absolute;top:95%;text-align: center">
+        <a href="https://github.com/FangHeng/CQU_SimpleDES_Toolkit" target="_blank">CQU_SimpleDES_Toolkit</a> All Rights Reserved©
+        </p>
+        </div>
     </section>
     {#    <section class="et-slide" id="tab-other">#}
     {#      <h1>Other</h1>#}
@@ -154,15 +172,48 @@
                 dataType: "json",
                 success: function (result) {
                     $("#ciphertext").val(result['ciphertext']);
-                    confirm("已成功转换明密文")
+                    Swal.fire(
+                        'Success!',
+                        '转换成功!',
+                        'success'
+                    )
                 },
                 error: function () {
-                    alert("error, please check your input first!");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: '出现了一些错误',
+                        footer: '请注意您的输入格式'
+                    })
                 }
+
             });
         }
     });
 
 </script>
+<script>
+    document.getElementById('copyButton').addEventListener('click', function() {
+        // 获取id为"ciphertext"的元素的内容
+        var copyText = document.getElementById('ciphertext');
 
+        // 选择文本
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); // 对于移动设备
+
+        // 复制文本
+        document.execCommand('copy');
+
+        // 将按钮文本更改为"copied！"
+        this.querySelector('span').textContent = 'copied！';
+    });
+
+     document.addEventListener('mousedown', function(event) {
+        // 检查点击的元素是否是复制按钮
+        if (event.target !== copyButton && !copyButton.contains(event.target)) {
+            // 当页面的其他地方被点击时，将按钮文本更改回"copy"
+            copyButton.querySelector('span').textContent = 'copy';
+        }
+    });
+</script>
 </html>
