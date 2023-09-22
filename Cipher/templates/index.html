@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>信息安全导论：S-DES的实现</title>
+    <link rel="icon" type="image/png" href="{% static 'image/icon.jpg' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/btn-style.css' %}">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Hero -->
+<section class="et-hero-tabs">
+    <h1 style="font-size: 80px;position: absolute;top: 40%;text-align: center;left: 0;right: 0;margin: auto;width: 60%">
+        S-DES 加解密算法实现</h1>
+    <h3 style="position: absolute;top: 70%;text-align: center;left: 0;right: 0;margin: auto;width: 50%">实验小组成员 :
+        方珩 , 杨俣豪</h3>
+    <div class="et-hero-tabs-container">
+        <a class="et-hero-tab" href="#tab-es6">Intro</a>
+        <a class="et-hero-tab" href="#tab-flexbox">S-DES</a>
+        <a class="et-hero-tab" href="#tab-react">More Algorithm</a>
+        <a class="et-hero-tab" href="#tab-angular">About Us</a>
+        {#      <a class="et-hero-tab" href="#tab-other">Other</a>#}
+        <span class="et-hero-tab-slider"></span>
+    </div>
+</section>
+
+<!-- Main -->
+<main class="et-main">
+    <section class="et-slide" id="tab-es6">
+        <h1 style="position: absolute;top:30%;text-align: center">Introduction</h1>
+        <p style="position: absolute;top:50%;text-align: center;font-size: 25px">S-DES（简单数据加密标准）是一种对称密钥加密算法,
+            它是对DES（数据加密标准）的简化版本。<br><br>
+            由于其结构的简单性，常用于帮助学习者更好地理解对称密钥加密的工作原理。</p>
+    </section>
+    <section class="et-slide" id="tab-flexbox">
+        <h1 style="position: absolute;top:5%;text-align: center">S-DES Cipher Conversion</h1>
+        <div class="container mt-5" style="position: absolute;top: 15%">
+            <div class="github-comment">
+                <p>欢迎使用S-DES Cipher Conversion工具！这是一个简单但实用的对称加密工具，
+                    基于SDES（简单数据加密标准）算法。在这里，您可以方便地进行位（Bit）或Unicode加密与解密。</p>
+                <p>使用步骤：</p>
+                <ul>
+                    <li>输入密钥：在"请输入加解密使用的密钥"框中输入您的密钥。</li>
+                    <li>
+                        选择编码类型：
+                        <ul>
+                            <li>Bit：选择这个选项如果您的文本是位编码。</li>
+                            <li>Unicode：选择这个选项如果您的文本是Unicode编码。</li>
+                        </ul>
+                    </li>
+                    <li>输入明文：在文本框中输入您想加密的文本。</li>
+                    <li>
+                        执行操作：
+                        <ul>
+                            <li>点击“Encipher”进行加密。</li>
+                            <li>点击“Decipher”进行解密。</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <form id="plaintext_form" class="layui-form" method="post">
+            {% csrf_token %}
+            <input class="keyArea" id="key" name="key" placeholder="请输入加解密使用的密钥">
+            <div class="checkbox-wrapper">
+                <label>
+                    <input type="radio" name="choice" value="bit">
+                    <span class="checkbox" style="position:absolute;top:55%;left:32%"></span>
+                    <p style="position:absolute;top:53.5%;left:34.5%;font-size: larger">Bit</p>
+                </label>
+            </div>
+
+            <div class="checkbox-wrapper">
+                <label>
+                    <input type="radio" name="choice" value="unicode" checked>
+                    <span class="checkbox" style="position:absolute;top:55%;left:38%"></span>
+                    <p style="position:absolute;top:53.5%;left:40.5%;font-size: larger" >Unicode</p>
+                </label>
+            </div>
+
+            <textarea class="plaintextArea" id="plaintext" name="plaintext"
+                      placeholder="输入加解密对应的原文或者密文：&#10;请注意如果选择bit型加密，请输入8位二进制数；&#10;如果选择Unicode型加密，则输入您需要加密的原文字符串即可。"></textarea>
+            <textarea class="ciphertextArea" id="ciphertext" name="ciphertext" placeholder="&#10;&#10;&#10;&#10;输出结果"
+                      readonly="true"></textarea>
+            <button class="ui-btn encipher" type="button">
+                    <span>
+                        Encipher
+                    </span>
+            </button>
+            <button class="ui-btn decipher" type="button">
+                    <span>
+                        Decipher
+                    </span>
+            </button>
+        </form>
+    </section>
+    <section class="et-slide" id="tab-react">
+        <h1>More Algorithm</h1>
+        <h3>waiting to be developed</h3>
+    </section>
+    <section class="et-slide" id="tab-angular">
+        <h1 style="position: absolute;top:20%;text-align: center;font-size: 80px">About Us</h1>
+        <h1 style="position: absolute;top:40%;text-align: center">课程名称: SE30502信息安全导论</h1>
+        <h2 style="position: absolute;top:55%;text-align: center">指导教师: 胡海波</h2>
+        <h2 style="position: absolute;top:60%;text-align: center">
+            项目成员：2021级软件工程03班 方珩、杨俣豪</h2>
+        <h3 style="position: absolute;top:75%;text-align: center">作业目标:
+            学习S-DES的加解密流程,并使用编程语言实现S-DES加密算法实例。</h3>
+        <h3 style="position: absolute;top:80%;text-align: center">目前进度:
+            增加了程序对ASCII码的适应，完成实用性的扩展，并完成对应五项任务的测试。</h3>
+    </section>
+    {#    <section class="et-slide" id="tab-other">#}
+    {#      <h1>Other</h1>#}
+    {#      <h3>something about other</h3>#}
+    {#    </section>#}
+</main>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+        });
+
+        $('.encipher').click(function () {
+            submitFormWithAjax('/plaintext_sent/');
+        });
+
+        $('.decipher').click(function () {
+            submitFormWithAjax('/ciphertext_sent/');
+        });
+
+        function submitFormWithAjax(url) {
+            var key = $('#key').val();
+            var plaintext = $('#plaintext').val();
+            var trans_type = $("input[name='choice']:checked").val()
+            $.ajax({
+                type: "POST",
+                data: {
+                    'key': key,
+                    'plaintext': plaintext,
+                    'type': trans_type
+                },
+                url: url,
+                cache: false,
+                dataType: "json",
+                success: function (result) {
+                    $("#ciphertext").val(result['ciphertext']);
+                    confirm("已成功转换明密文")
+                },
+                error: function () {
+                    alert("error, please check your input first!");
+                }
+            });
+        }
+    });
+
+</script>
+
+</html>

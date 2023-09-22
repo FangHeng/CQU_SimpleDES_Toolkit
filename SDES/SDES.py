@@ -49,8 +49,8 @@ class SDES:
         ls2_left, ls2_right = self.left_shift(ls1_left, 1), self.left_shift(ls1_right, 1)
         k1 = self.permute(ls1_left + ls1_right, self.P8)
         k2 = self.permute(ls2_left + ls2_right, self.P8)
-        print(f'k1:{k1}')
-        print(f'k2:{k2}')
+        # print(f'k1:{k1}')
+        # print(f'k2:{k2}')
         return k1, k2
 
     def f(self, right, subkey):
