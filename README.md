@@ -68,7 +68,7 @@ python manage.py runserver
 #### 4.1 第1关：基本测试
 
 > 根据S-DES算法编写和调试程序，提供GUI解密支持用户交互。输入可以是8bit的数据和10bit的密钥，输出是8bit的密文。
-> - 具体详细测试代码请看[task1测试文件夹]("https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task1")。
+> - 具体详细测试代码请看[task1测试文件夹](https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task1)。
 
 ##### 4.1.1 GUI界面中测试
 
@@ -82,7 +82,7 @@ python manage.py runserver
 
 ##### 4.1.2 测试代码中测试
 
-我们在`/testZone/task1`文件夹中提供了jupyter notebook的测试代码，可以直接打开task1测试文件夹中的[task1.ipynb文件]("https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task1/task1.ipynb")，即可看到测试结果。
+我们在`/testZone/task1`文件夹中提供了jupyter notebook的测试代码，可以直接打开task1测试文件夹中的[task1.ipynb文件](https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task1/task1.ipynb)，即可看到测试结果。
 
 ##### 4.1.3 GUI设计
 
@@ -119,16 +119,16 @@ About Us界面主要介绍课程和项目的相关信息，包含课程名称代
 #### 4.2 第2关：交叉测试
 
 > 考虑到是**算法标准**，所有人在编写程序的时候需要使用相同算法流程和转换单元(P-Box、S-Box等)，以保证算法和程序在异构的系统或平台上都可以正常运行。设有A和B两组位同学(选择相同的密钥K)；则A、B组同学编写的程序对明文P进行加密得到相同的密文C；或者B组同学接收到A组程序加密的密文C，使用B组程序进行解密可得到与A相同的P。
-> - 具体详细测试代码请看[task2测试文件夹]("https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task2")。
+> - 具体详细测试代码请看[task2测试文件夹](https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task2)。
 
 我们在该轮测试中与两个小组进行了交叉测试，验证了我们加密算法的正确性。
 
-我们在`/testZone/task2`文件夹中提供了与两个小组测试的jupyter notebook测试代码，可以直接打开task2测试文件夹中的[task2.ipynb文件]("https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task2/task2.ipynb")，即可看到测试结果。
+我们在`/testZone/task2`文件夹中提供了与两个小组测试的jupyter notebook测试代码，可以直接打开task2测试文件夹中的[task2.ipynb文件](https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task2/task2.ipynb)，即可看到测试结果。
 
 #### 4.3 第3关：扩展功能
 
 > 考虑到向实用性扩展，加密算法的数据输入可以是ASII编码字符串(分组为1 Byte)，对应地输出也可以是ACII字符串(很可能是乱码)。
-> - 具体详细测试代码请看[task3测试文件夹]("https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task3")。
+> - 具体详细测试代码请看[task3测试文件夹](https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task3)。
 
 ##### 4.3.1 GUI界面中测试
 
@@ -142,7 +142,7 @@ About Us界面主要介绍课程和项目的相关信息，包含课程名称代
 
 ##### 4.3.2 测试代码中测试
 
-我们在`/testZone/task3`文件夹中提供了jupyter notebook的测试代码，可以直接打开task3测试文件夹中的[task3.ipynb文件]("https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task3/task3.ipynb")，即可看到测试结果。
+我们在`/testZone/task3`文件夹中提供了jupyter notebook的测试代码，可以直接打开task3测试文件夹中的[task3.ipynb文件](https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task3/task3.ipynb)，即可看到测试结果。
 
 ##### 4.3.3 ASCII码加密时的处理
 
@@ -155,13 +155,13 @@ About Us界面主要介绍课程和项目的相关信息，包含课程名称代
 #### 4.4 第4关：暴力破解
 
 > 假设你找到了使用相同密钥的明、密文对(一个或多个)，请尝试使用暴力破解的方法找到正确的密钥Key。在编写程序时，你也可以考虑使用多线程的方式提升破解的效率。请设定时间戳，用视频或动图展示你在多长时间内完成了暴力破解。
-> - 具体详细测试代码请看[task4测试文件夹]("https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task4")。
+> - 具体详细测试代码请看[task4测试文件夹](https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task4)。
 
 为了测试SDES算法的安全性，我们在该轮测试中进行了暴力破解的测试，验证了我们加密算法的安全性。
 
 我们给出了三组明文密文对，并依次对密钥进行了暴力破解.
 
-我们在`/testZone/task4`文件夹中提供了三组明密文对的jupyter notebook测试代码，可以直接打开task4测试文件夹中的[task4.ipynb文件]("https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task4/task4.ipynb")，即可看到测试结果。
+我们在`/testZone/task4`文件夹中提供了三组明密文对的jupyter notebook测试代码，可以直接打开task4测试文件夹中的[task4.ipynb文件](https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task4/task4.ipynb)，即可看到测试结果。
 
 就结果来看，我们可以通过jupyter中代码框的运行时间来看到，我们的暴力破解算法的运行时间基本在毫秒级，大多在20+ms就可以完成破解，并给出全部的可能的key。
 
@@ -170,7 +170,7 @@ About Us界面主要介绍课程和项目的相关信息，包含课程名称代
 #### 4.5 第5关：封闭测试
 
 >  根据第4关的结果，进一步分析，对于你随机选择的一个明密文对，是不是有不止一个密钥Key？进一步扩展，对应明文空间任意给定的明文分组P_{n}，是否会出现选择不同的密钥K_{i}\ne K_{j}加密得到相同密文C_n的情况？
-> - 具体详细测试代码请看[task5测试文件夹]("https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task5")。
+> - 具体详细测试代码请看[task5测试文件夹](https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task5)。
 
 我们在该轮测试中进行了封闭测试，讨论了SDES算法的安全性。
 
@@ -182,7 +182,7 @@ About Us界面主要介绍课程和项目的相关信息，包含课程名称代
 - 简化的结构：S-DES与真正的DES相比具有简化的结构，这意味着其加密过程没有充分混淆明文和密钥，从而更容易出现不同的明文和密钥组合导致相同的密文输出。 
 - 小密钥空间：S-DES只有10位密钥，意味着只有2^10 = 1024 种可能的密钥。这样的小密钥空间使得碰撞更为可能。
 
-详细的证明和讨论我们放在了`/testZone/task5`文件夹中的[task5.ipynb文件]("https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task5/task5.ipynb")，即可以看到详细的讨论过程以及数学推导。
+详细的证明和讨论我们放在了`/testZone/task5`文件夹中的[task5.ipynb文件](https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task5/task5.ipynb)，即可以看到详细的讨论过程以及数学推导。
 
 同样的，我们针对对应明文空间任意给定的明文分组P_{n}，是否会出现选择不同的密钥K_{i}\ne K_{j}加密得到相同密文C_n的情况也进行了检测，得到了肯定的结果。在jupyter文件中也进行了一定的讨论。
 
@@ -196,7 +196,7 @@ About Us界面主要介绍课程和项目的相关信息，包含课程名称代
 - 重叠扩展置换。在SDES中，有一个扩展置换（EP）,它会将4位的输入扩展到8位。这个扩展不是简单地增加更多的信息，而是重复某些位。这意味着当这些位参与到与密钥的XOR操作中时，某些密钥位会影响到重叠的位。因此，不同的密钥可能会导致加密过程中的这些重叠位的相同结果。 
 - 密钥调度。在SDES中，生成两个子密钥的过程涉及到置换和循环左移。这可能导致不同的10位密钥产生相同的8位子密钥。
 
-详细的证明和讨论我们放在了`/testZone/task5`文件夹中的[task5.ipynb文件]("https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task5/task5.ipynb")，即可以看到详细的讨论过程以及数学推导。
+详细的证明和讨论我们放在了`/testZone/task5`文件夹中的[task5.ipynb文件](https://github.com/FangHeng/CQU_SimpleDES_Toolkit/tree/main/testZone/task5/task5.ipynb)，即可以看到详细的讨论过程以及数学推导。
 
 这样的实验过程也加深了我们对于该加密算法的理解和认识。
 
